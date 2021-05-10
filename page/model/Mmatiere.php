@@ -1,39 +1,39 @@
 <?php
 include_once __DIR__.'/../database/DB.php';
 
-    class Mgroupe{
+    class Mmatiere{
         function getSelect(){
 
-            $sql="select * from groupe";
+            $sql="select * from matiere";
             $query=DB::connect()->query($sql);
             return $query->fetchAll();
         }
 
         function delete($id){
 
-            $sql="delete from groupe where id=$id";
+            $sql="delete from matiere where id=$id";
             $query=DB::connect()->query($sql);
 
             
         }
 
-        function save($Libelle,$effectif){
+        function save($Libelle){
 
-            $sql="INSERT INTO `groupe`(`libelle`, `effectif`) VALUES ('$Libelle','$effectif')";
+            $sql="INSERT INTO `matiere`(`libelle`) VALUES ('$Libelle')";
             $query=DB::connect()->query($sql);
         }
 
         function edit($id){
    
-            $sql="select * from groupe where id=$id";
+            $sql="select * from matiere where id=$id";
 
             $query=DB::connect()->query($sql);
             return $query->fetchAll();
         }
 
-        function update($Libelle,$effectif,$id){
+        function update($Libelle,$id){
            
-            $sql="UPDATE groupe SET libelle='$Libelle',effectif='$effectif' WHERE id = $id";
+            $sql="UPDATE matiere SET libelle='$Libelle' WHERE id = $id";
             // die($sql);
             $query=DB::connect()->query($sql);
         }

@@ -1,8 +1,4 @@
 
-
-
-
-
       <!DOCTYPE html>
 <html lang="en">
 
@@ -16,13 +12,12 @@
     integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
   <!-- <link rel="stylesheet" href="../public/style.css"> -->
-
 </head>
 
 <body>
 
-<?php foreach( $salles as $s) ?>
-<form action="http://localhost/www/brief%205%20MVC/page/salle/update" method="post" class="card card-body">
+<?php foreach( $groupes as $s) ?>
+<form action="http://localhost/www/brief%205%20MVC/page/groupe/update" method="post" class="card card-body">
         <div class="d-flex">
           <div class="col-md-5">
             <input type="text" name="Libelle" class="form-control" placeholder="Libelle" value="<?php echo $s['libelle']?>">
@@ -30,9 +25,9 @@
           <div class="col-md-1">
           </div>
           <div class="col-md-5">
-            <input type="number" name="capacite" class="form-control col-md-6" placeholder="capacite" value="<?php echo $s['capacity']?>">
+            <input type="number" name="effectif" class="form-control col-md-6" placeholder="effectif" value="<?php echo $s['effectif']?>">
           </div>&nbsp;&nbsp;
-          <input type="hidden" name="id" class="form-control col-md-6" placeholder="capacite" value="<?php echo $s['id']?>">
+          <input type="hidden" name="id" value="<?php echo $s['id']?>">
 
           <button name="submit" class="btn btn-primary ">Edit</button>
         </div>

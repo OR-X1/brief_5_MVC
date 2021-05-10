@@ -1,20 +1,18 @@
 <?php
-include_once __DIR__.'/../model/Msale.php';
+include_once __DIR__.'/../model/Mmatiere.php';
 
-class SalleControler
+class MatiereControler
 {
 
-	
 
 	function index()
 	{
 		session_start();
-
-		$salle = new Msale();
-		$salles=$salle->getSelect();
+		$matiere = new Mmatiere();
+		$matieres=$matiere->getSelect();
 
 		if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
-		require_once __DIR__.'/../view/salle.php';
+		require_once __DIR__.'/../view/matiere.php';
 		}else{
 			header("location: http://localhost/www/brief%205%20MVC/page");
 		}
@@ -24,23 +22,26 @@ class SalleControler
 	function save()
 	
 	{
-
 		session_start();
 		$i = 0;
 		if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
 			if(isset($_POST['submit'])){
 				$Libelle=$_POST['libelle'];
-				$capacite=$_POST['capacite'];
 
-				$salle = new Msale();
-				$salle->save($Libelle,$capacite);
 
+	
+				$matiere = new Mmatiere();
+				$matiere->save($Libelle);
+
+				
+
+				
 				while(isset($_POST['Libelle'.$i])){
-					$salle->save($_POST['Libelle'.$i],$_POST['capacite'.$i]);
+					$matiere->save($_POST['Libelle'.$i]);
 					$i++;
 				}
 				
-				header("location: http://localhost/www/brief%205%20MVC/page/salle");
+				header("location: http://localhost/www/brief%205%20MVC/page/matiere");
 				
 			}
 		}else{
@@ -54,10 +55,10 @@ class SalleControler
 		if(isset($_POST['update'])){
 			$id=$_POST['updateID'];
 
-			$salle = new Msale();
-			$salles=$salle->edit($id);
+			$matiere = new Mmatiere();
+			$matieres=$matiere->edit($id);
 
-			require_once __DIR__.'/../view/updateSalle.php';
+			require_once __DIR__.'/../view/updateMatiere.php';
 
 		}
 	}
@@ -66,14 +67,13 @@ class SalleControler
 	{
 		if(isset($_POST['submit'])){
 			$Libelle=$_POST['Libelle'];
-			$capacite=$_POST['capacite'];
 			$id=$_POST['id'];
 
-			$salle = new Msale();
-			$salle->update($Libelle,$capacite,$id);
+			$matiere = new Mmatiere();
+			$matiere->update($Libelle,$id);
 
 
-			header("location: http://localhost/www/brief%205%20MVC/page/salle");
+			header("location: http://localhost/www/brief%205%20MVC/page/matiere");
 
 		}
 	}
@@ -84,10 +84,10 @@ class SalleControler
 	{
 		if(isset($_POST['submit'])){
 			$id=$_POST['DeleteID'];
-			$salle = new Msale();
-			$salle->delete($id);
+			$matiere = new Mmatiere();
+			$matiere->delete($id);
 
-			header("location: http://localhost/www/brief%205%20MVC/page/salle");
+			header("location: http://localhost/www/brief%205%20MVC/page/matiere");
 
 		}
 		

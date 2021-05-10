@@ -1,0 +1,26 @@
+.sidebar {
+  background-color: #444;
+  height: 100vh;
+  width: 260px;
+}
+
+.list-group-item {
+  background-color: transparent;
+  color: aliceblue;
+}
+
+body {
+  background-color: #F1F1F1;
+}
+
+.material-icons {
+  position: relative;
+  top: 5px;
+}
+
+.singoutSide {
+  bottom: 20px;
+  left: 60px;
+  width: auto;
+}
+/*# sourceMappingURL=styleSass.css.map */

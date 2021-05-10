@@ -1,5 +1,7 @@
 <?php
 
+// session_start();
+
 
 $params=explode('/',$_GET['p']);
 
@@ -18,7 +20,6 @@ if (isset($params[0]) & !empty($params[0]))
 			if (method_exists($obj,$params[1] )) 
 			{
 				
-				// session_start();
 				
 					$obj->$action();
 				
@@ -39,12 +40,11 @@ if (isset($params[0]) & !empty($params[0]))
 		echo "this page doesn't exsit";
 	}
 	
-	
 }else
 {
 	require_once "controller/Home.php";
 	$obj=new Home();
 	$obj->index('login');
 	
-	// header("location: http://localhost/www/brief%205%20MVC/page/login");
+	
 }

@@ -9,6 +9,25 @@ include_once __DIR__.'/../database/DB.php';
             return $query->fetchAll();
         }
 
+        function getSelectSalleFilter($res3Salles){
+
+            if(empty($res3Salles)){
+                $res3Salles[0]=0;
+            }
+
+            $sql="select * from salle where id in (".implode(',', $res3Salles).")";
+                
+            $query=DB::connect()->query($sql);
+
+                    if($row=$query->fetchAll(PDO::FETCH_ASSOC)){
+                        return $row;
+                    }
+                    else{
+                        return $row=[];
+                    }
+                    $query=null;
+        }
+
         function delete($id){
 
             $sql="delete from salle where id=$id";

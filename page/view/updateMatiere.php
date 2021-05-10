@@ -21,18 +21,16 @@
 
 <body>
 
-<?php foreach( $salles as $s) ?>
-<form action="http://localhost/www/brief%205%20MVC/page/salle/update" method="post" class="card card-body">
+<?php foreach( $matieres as $s) ?>
+<form action="http://localhost/www/brief%205%20MVC/page/matiere/update" method="post" class="card card-body">
         <div class="d-flex">
           <div class="col-md-5">
             <input type="text" name="Libelle" class="form-control" placeholder="Libelle" value="<?php echo $s['libelle']?>">
           </div>
           <div class="col-md-1">
           </div>
-          <div class="col-md-5">
-            <input type="number" name="capacite" class="form-control col-md-6" placeholder="capacite" value="<?php echo $s['capacity']?>">
-          </div>&nbsp;&nbsp;
-          <input type="hidden" name="id" class="form-control col-md-6" placeholder="capacite" value="<?php echo $s['id']?>">
+          &nbsp;&nbsp;
+          <input type="hidden" name="id" value="<?php echo $s['id']?>">
 
           <button name="submit" class="btn btn-primary ">Edit</button>
         </div>

@@ -1,4 +1,9 @@
 
 body{
-    background-color: rgb(255, 110, 110);
+    background-color: rgb(255, 49, 49);
 }
+
+.sidebar{
+    background-color: #333333;
+    height: 100vh;
+  }
